@@ -1,9 +1,9 @@
 package com.programmeren4.turnahead.server.model.jpa;
 
 
-
 import java.io.Serializable;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,14 +19,17 @@ public class Item implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Key itemId; //Long itemId
+	@Basic
 	private String itemName;
+	@Basic
 	private String itemDescription;
 	
 	
 	//constructor
-	public Item(){
-		
-		
+	public Item(String itemName, String itemDescription){
+		//this.itemId = ;
+		this.itemName = itemName;
+		this.itemDescription = itemDescription;	
 	}
 	
 	
@@ -36,13 +39,9 @@ public class Item implements Serializable{
 	 * @return
 	 */
 	public Key getItemId() {
-	        return itemId;
+		return itemId;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public String getItemName() {
 		return itemName;
 	}
@@ -57,7 +56,5 @@ public class Item implements Serializable{
 		this.itemDescription = itemDescription;
 	}
  
-	
-	
 
 }

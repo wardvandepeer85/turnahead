@@ -27,16 +27,13 @@ public class UserDataDTO implements Serializable{
     	this.password = password;
     }
     
-    
-
-
+ 
     public UserDataDTO() {
 		super();
 	}
 
-
-
-
+    
+    //getters en setters
 	public Long getUserId() {
         return userId;
     }
@@ -100,9 +97,7 @@ public class UserDataDTO implements Serializable{
 		return result;
 	}
 
-
-
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

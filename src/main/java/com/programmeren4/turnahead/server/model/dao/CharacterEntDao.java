@@ -31,4 +31,46 @@ public class CharacterEntDao {
 		}
 		return account;
 	}
+	
+	/**
+	 * 
+	 * @param account
+	 * @return
+	 * @throws DAOException
+	 */
+	public CharacterEntDao deleteCharacterEnt(CharacterEntDao account) throws DAOException {
+		em = EMFService.get().createEntityManager();
+		//tx = em.getTransaction();
+		//tx.begin();
+		try {
+			em.remove(account);
+			
+		} catch (Exception e) {
+			tx.rollback();
+			Logger.getLogger("AccountDAO").log(Level.SEVERE, e.getMessage());
+			throw new DAOException();
+		} finally {
+			em.close();
+		}
+		return account;
+	}
+
+	
+	public CharacterEntDao UpdateCharacterEnt(CharacterEntDao account) throws DAOException {
+		em = EMFService.get().createEntityManager();
+		
+		try {
+			
+			
+		} catch (Exception e) {
+			tx.rollback();
+			Logger.getLogger("AccountDAO").log(Level.SEVERE, e.getMessage());
+			throw new DAOException();
+		} finally {
+			em.close();
+		}
+		return account;
+	}
+
+
 }

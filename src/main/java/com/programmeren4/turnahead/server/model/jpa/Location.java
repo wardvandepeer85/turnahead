@@ -25,12 +25,17 @@ public class Location implements Serializable {
 	private String locationDescription;
 	
 	//constructor
-	
+	public Location(String locationName, String locationDescription) {
+		
+		this.locationName = locationName;
+		this.locationDescription = locationDescription;
+	}
 	
 	//getters en setters
 	public Key getLocationId() {
         return locationId;
     }
+	
 	
 	public String getLocationName() {
 		return locationName;
@@ -39,11 +44,13 @@ public class Location implements Serializable {
 		this.locationName = locationName;
 	}
 	
+	
 	public String getLocationDescription() {
 		return locationDescription;
 	}
 	public void setLocationDescription(String locationDescription) {
 		this.locationDescription = locationDescription;
 	}
-	
+
+
 }

@@ -2,6 +2,7 @@ package com.programmeren4.turnahead.server.model.jpa;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,17 @@ public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Key userId; //Long key
+    @Basic
     private String firstName;
+    @Basic
     private String lastName;
+    @Basic
     private String eMail;
+    @Basic
     private String password;
-	private Date lastLogin;
+    @Basic
+    private Date lastLogin;
+    @Basic
     private Date registrationDate;
     
     //constructor
@@ -31,11 +38,13 @@ public class UserData {
     	this.lastName = lastName;
     	this.eMail = eMail;
     	this.password = password;
+    	this.lastLogin = new Date();
+    	this.registrationDate = new Date();
     }
     
     
 
-
+    //getters en setters
     public Key getUserId() {
         return userId;
     }

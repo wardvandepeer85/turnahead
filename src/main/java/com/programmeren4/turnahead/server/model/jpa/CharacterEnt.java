@@ -17,7 +17,6 @@ import com.google.appengine.api.datastore.Key;
  * Karakter
  * 
  */
-
 @Entity
 public class CharacterEnt implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -37,24 +36,24 @@ public class CharacterEnt implements Serializable {
     private Date registrationDate;
     
     //constructor
-	/*public CharacterEnt(Key characterId, String characterName, Date lastLogin,
-			Date registrationDate) {
-		this.characterId = characterId;
-		this.characterName = characterName;
-		this.lastLogin = lastLogin;
-		this.registrationDate = registrationDate;
-	}*/
-	
+	/**
+	 * Constructor om een Character aan te maken
+	 * @param characterName
+	 * @param lastLogin
+	 * @param registrationDate
+	 */
 	public CharacterEnt(String characterName, Date lastLogin, Date registrationDate) {
 		this.characterName = characterName;
 		this.lastLogin = new Date();
 		this.registrationDate = new Date();
 	}
 	
+	//getters en setters
 	public Key getCharacterId() {
 		return characterId;
 	}
 
+	
 	public String getCharacterName() {
 		return characterName;
 	}
@@ -62,13 +61,15 @@ public class CharacterEnt implements Serializable {
 	public void setCharacterName(String characterName) {
         this.characterName = characterName;
     }
-    
+   
+	
     public Date getLastLogine() {
         return lastLogin;
     }
     public void setLastLoginDate(Date lastLogin) {
         this.lastLogin = lastLogin;
     }
+    
     
     public Date getRegistrationDate() {
         return registrationDate;
@@ -78,6 +79,7 @@ public class CharacterEnt implements Serializable {
         this.registrationDate = registrationDate;
     }
 
+    
 	public Date getLastLogin() {
 		return lastLogin;
 	}
