@@ -10,7 +10,6 @@ import com.programmeren4.turnahead.server.model.EMFService;
 import com.programmeren4.turnahead.shared.exception.DAOException;
 
 
-
 public class CharacterEntDao {
 	EntityManager em;
 	EntityTransaction tx;
@@ -33,18 +32,20 @@ public class CharacterEntDao {
 	}
 	
 	/**
-	 * 
+	 * Character 
 	 * @param account
 	 * @return
 	 * @throws DAOException
 	 */
 	public CharacterEntDao deleteCharacterEnt(CharacterEntDao account) throws DAOException {
 		em = EMFService.get().createEntityManager();
-		//tx = em.getTransaction();
-		//tx.begin();
+		tx = em.getTransaction();
+		tx.begin();
+		//account opzoeken
+		
 		try {
 			em.remove(account);
-			
+			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
 			Logger.getLogger("AccountDAO").log(Level.SEVERE, e.getMessage());
@@ -55,13 +56,22 @@ public class CharacterEntDao {
 		return account;
 	}
 
-	
+	/**
+	 * 
+	 * @param account
+	 * @return
+	 * @throws DAOException
+	 */
 	public CharacterEntDao UpdateCharacterEnt(CharacterEntDao account) throws DAOException {
 		em = EMFService.get().createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
+		//account opzoeken
+		//gegevens vergelijken en wijzigen
 		
 		try {
-			
-			
+			em.remove(account);
+			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
 			Logger.getLogger("AccountDAO").log(Level.SEVERE, e.getMessage());

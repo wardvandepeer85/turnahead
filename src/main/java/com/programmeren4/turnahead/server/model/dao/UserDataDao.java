@@ -35,6 +35,25 @@ public class UserDataDao {
 		return userData;
 	}
 	
+	public UserData deleteUserData(UserData userData) throws DAOException {
+		em = EMFService.get().createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
+		
+		try {
+			em.remove(userData);
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			Logger.getLogger("UserDataDao").log(Level.SEVERE, e.getMessage());
+			throw new DAOException();
+		} finally {
+			em.close();
+		}
+		return userData;
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public List<UserData> getUsersData() {
 		em = EMFService.get().createEntityManager();

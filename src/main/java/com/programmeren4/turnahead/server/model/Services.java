@@ -25,8 +25,10 @@ public class Services {
 		// TODO: Implement some checks
 		UserData userData = new UserData(userDataDTO.getFirstName(), userDataDTO.getLastName(), userDataDTO.getEMail(), userDataDTO.getPassword());
 		// TODO: Implement some more checks
-		userDataDao.addUserData(userData);
+		userDataDao.deleteUserData(userData);
 	}
+	
+	//
 	
 
 }
