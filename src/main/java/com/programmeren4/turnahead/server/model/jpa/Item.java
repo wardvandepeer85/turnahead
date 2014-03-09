@@ -11,14 +11,18 @@ import javax.persistence.Id;
 
 import com.google.appengine.api.datastore.Key;
 
-
+/**
+ * Item
+ *
+ */
 @Entity
 public class Item implements Serializable{
-	
 	//attributen
+	private static final long serialVersionUID = 1L;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key itemId; //Long itemId
+    private Key itemId; // Long voor JPA, Key voor JPA + GAE
 	@Basic
 	private String itemName;
 	@Basic
@@ -34,10 +38,6 @@ public class Item implements Serializable{
 	
 	
 	//getters en setters
-	/**
-	 * 
-	 * @return
-	 */
 	public Key getItemId() {
 		return itemId;
 	}
@@ -48,6 +48,7 @@ public class Item implements Serializable{
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
+	
 	
 	public String getItemDescription() {
 		return itemDescription;

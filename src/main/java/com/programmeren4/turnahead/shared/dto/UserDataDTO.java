@@ -10,8 +10,9 @@ import com.google.appengine.api.datastore.Key;
  * 
  */
 public class UserDataDTO implements Serializable{
+	//attributen
 	private static final long serialVersionUID = 1L;
-	private Long userId; //Long key
+	private Key userId; //Long voor JPA, Key voor JPA + GAE
     private String firstName;
     private String lastName;
     private String eMail;
@@ -34,7 +35,7 @@ public class UserDataDTO implements Serializable{
 
     
     //getters en setters
-	public Long getUserId() {
+	public Key getUserId() {
         return userId;
     }
 
@@ -86,9 +87,8 @@ public class UserDataDTO implements Serializable{
         this.registrationDate = registrationDate;
     }
 
-
-
-
+    
+    
 	@Override
 	public int hashCode() {
 		final int prime = 31;

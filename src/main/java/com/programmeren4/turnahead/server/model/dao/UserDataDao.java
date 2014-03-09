@@ -17,7 +17,13 @@ import com.programmeren4.turnahead.shared.exception.DAOException;
 public class UserDataDao {
 	EntityManager em;
 	EntityTransaction tx;
-
+	
+	/**
+	 * Gebruiker aanmaken in de datastore
+	 * @param userData
+	 * @return
+	 * @throws DAOException
+	 */
 	public UserData addUserData(UserData userData) throws DAOException {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
@@ -35,11 +41,17 @@ public class UserDataDao {
 		return userData;
 	}
 	
+	
+	/**
+	 * Gebruiker verwijderen uit de datastore
+	 * @param userData
+	 * @return
+	 * @throws DAOException
+	 */
 	public UserData deleteUserData(UserData userData) throws DAOException {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
-		
 		try {
 			em.remove(userData);
 			tx.commit();
@@ -54,6 +66,33 @@ public class UserDataDao {
 	}
 	
 	
+	/**
+	 * 
+	 * @param userData
+	 * @return
+	 * @throws DAOException
+	 */
+	public UserData updateUserData(UserData userData) throws DAOException {
+		em = EMFService.get().createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
+		try {
+			
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			Logger.getLogger("UserDataDao").log(Level.SEVERE, e.getMessage());
+			throw new DAOException();
+		} finally {
+			em.close();
+		}
+		return userData;
+	}
+	
+	/**
+	 * Users oplijsten
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public List<UserData> getUsersData() {
 		em = EMFService.get().createEntityManager();

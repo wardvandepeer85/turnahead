@@ -1,5 +1,6 @@
 package com.programmeren4.turnahead.server.model.jpa;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -15,10 +16,13 @@ import com.google.appengine.api.datastore.Key;
  * 
  */
 @Entity
-public class UserData {
-    @Id
+public class UserData implements Serializable{
+    //attributen
+	private static final long serialVersionUID = 1L;
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key userId; //Long key
+    private Key userId;  //Long voor JPA, Key voor JPA + GAE
     @Basic
     private String firstName;
     @Basic
