@@ -41,8 +41,6 @@ public class CharacterEntDao {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
-		//account opzoeken
-		
 		try {
 			em.remove(account);
 			tx.commit();
@@ -66,11 +64,8 @@ public class CharacterEntDao {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
-		//account opzoeken
-		//gegevens vergelijken en wijzigen
-		
 		try {
-			em.remove(account);
+			em.merge(account);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();

@@ -14,7 +14,7 @@ public class Services {
 	LocationDao locationDao = new LocationDao();
 	UserDataDao userDataDao = new UserDataDao();
 
-	// UserServices
+	//UserServices
 	public void addUser(UserDataDTO userDataDTO) throws DAOException {
 		// TODO: Implement some checks
 		UserData userData = new UserData(userDataDTO.getFirstName(), userDataDTO.getLastName(), userDataDTO.getEMail(), userDataDTO.getPassword());

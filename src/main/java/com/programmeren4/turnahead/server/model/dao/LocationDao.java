@@ -10,97 +10,95 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import com.programmeren4.turnahead.server.model.EMFService;
-import com.programmeren4.turnahead.server.model.jpa.UserData;
+import com.programmeren4.turnahead.server.model.jpa.Location;
 import com.programmeren4.turnahead.shared.exception.DAOException;
 
 
-public class UserDataDao {
+
+public class LocationDao {
 	EntityManager em;
 	EntityTransaction tx;
 	
 	/**
-	 * Gebruiker aanmaken in de datastore
-	 * @param userData
+	 * 
+	 * @param location
 	 * @return
 	 * @throws DAOException
 	 */
-	public UserData addUserData(UserData userData) throws DAOException {
+	public LocationDao addLocation(LocationDao location) throws DAOException {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
 		try {
-			em.persist(userData);
+			em.persist(location);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			Logger.getLogger("UserDataDao").log(Level.SEVERE, e.getMessage());
+			Logger.getLogger("LocationDAO").log(Level.SEVERE, e.getMessage());
 			throw new DAOException();
 		} finally {
 			em.close();
 		}
-		return userData;
+		return location;
 	}
-	
-	
-	/**
-	 * Gebruiker verwijderen uit de datastore
-	 * @param userData
-	 * @return
-	 * @throws DAOException
-	 */
-	public UserData deleteUserData(UserData userData) throws DAOException {
-		em = EMFService.get().createEntityManager();
-		tx = em.getTransaction();
-		tx.begin();
-		try {
-			em.remove(userData);
-			tx.commit();
-		} catch (Exception e) {
-			tx.rollback();
-			Logger.getLogger("UserDataDao").log(Level.SEVERE, e.getMessage());
-			throw new DAOException();
-		} finally {
-			em.close();
-		}
-		return userData;
-	}
-	
 	
 	/**
 	 * 
-	 * @param userData
+	 * @param account
 	 * @return
 	 * @throws DAOException
 	 */
-	public UserData updateUserData(UserData userData) throws DAOException {
-			
+	public LocationDao deleteLocation(LocationDao location) throws DAOException {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
 		try {
-			em.merge(userData);
+			em.remove(location);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			Logger.getLogger("UserDataDao").log(Level.SEVERE, e.getMessage());
+			Logger.getLogger("LocationDAO").log(Level.SEVERE, e.getMessage());
 			throw new DAOException();
 		} finally {
 			em.close();
 		}
-		return userData;
+		return location;
 	}
-	
+
 	/**
-	 * Users oplijsten
+	 * 
+	 * @param location
+	 * @return
+	 * @throws DAOException
+	 */
+	public LocationDao updateLocation(LocationDao location) throws DAOException {
+		em = EMFService.get().createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
+		try {
+			em.merge(location);
+			tx.commit();	
+		} catch (Exception e) {
+			tx.rollback();
+			Logger.getLogger("LocationDAO").log(Level.SEVERE, e.getMessage());
+			throw new DAOException();
+		} finally {
+			em.close();
+		}
+		return location;
+	}
+
+	/**
+	 * 
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<UserData> getUsersData() {
+	public List<Location> getLocations() {
 		em = EMFService.get().createEntityManager();
 		tx = em.getTransaction();
-		Query q = em.createQuery("SELECT a FROM UserData a");
-		List<UserData> userDataList = new ArrayList<UserData>(q.getResultList());
+		Query q = em.createQuery("SELECT a FROM Location a");
+		List<Location> LocationList = new ArrayList<Location>(q.getResultList());
 		em.close();
-		return userDataList;
+		return LocationList;
 	}
 }
