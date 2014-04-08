@@ -43,7 +43,7 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			String sql = "INSERT INTO USER VALUES (" ;
+			String sql = "INSERT INTO USER VALUES (" + ")" ;
 			conn.createStatement().executeUpdate(sql);
 		} catch(SQLException se) {
 			se.printStackTrace();
@@ -64,7 +64,7 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			String sql = "INSERT INTO USER VALUES (" ;
+			String sql = "UPDATE USER SET *=*,*=*, WHERE USERID=" + userData.getUserId();
 			conn.createStatement().executeUpdate(sql);
 		} catch(SQLException se) {
 			se.printStackTrace();	
@@ -85,7 +85,7 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			sql = "DELETE FROM Character WHERE userid = " + userData.getUserId() ;
+			sql = "DELETE FROM USER WHERE userid = " + userData.getUserId() ;
 			conn.createStatement().executeUpdate(sql);
 		}catch(SQLException se){
 			se.printStackTrace();
