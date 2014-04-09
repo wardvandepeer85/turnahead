@@ -14,6 +14,9 @@ public class UserDataDao {
 	private String sql;
 	
 	
+	public  UserDataDao(){}
+	
+	
 	/**
 	 * Gebruikerinformatie opvragen uit de database
 	 */
@@ -24,10 +27,12 @@ public class UserDataDao {
 			this.conn = DBConnector.getConn();
 			sql = "SELECT * FROM USER WHERE USERID=" + userData.getUserId();
 			conn.createStatement().executeUpdate(sql);
-		} catch(SQLException se) {
-			 se.printStackTrace();
-		} catch (Exception e) {
+			//db to DTO
 			
+		} catch(SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			DBConnector.closeConn();
 		}
@@ -43,8 +48,11 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			String sql = "INSERT INTO USER VALUES (" + ")" ;
+			String sql = "INSERT INTO USER VALUES (" + userData.getUserId() +")" ;
+			//db to DTO
+			
 			conn.createStatement().executeUpdate(sql);
+			
 		} catch(SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
@@ -66,6 +74,8 @@ public class UserDataDao {
 			this.conn = DBConnector.getConn();
 			String sql = "UPDATE USER SET *=*,*=*, WHERE USERID=" + userData.getUserId();
 			conn.createStatement().executeUpdate(sql);
+			//DTO to database (vergelijken of er aanpassingen mooeten gebeuren)
+			
 		} catch(SQLException se) {
 			se.printStackTrace();	
 		} catch (Exception e) {
@@ -96,4 +106,9 @@ public class UserDataDao {
 		}
 		return userData;
 	}
+	
+	/**
+	 * Alle gebruikers uit de db ophalen
+	 */
+	
 }
