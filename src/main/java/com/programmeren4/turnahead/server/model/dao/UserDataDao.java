@@ -50,9 +50,7 @@ public class UserDataDao {
 			this.conn = DBConnector.getConn();
 			String sql = "INSERT INTO USER VALUES (" + userData.getUserId() +")" ;
 			//db to DTO
-			
-			conn.createStatement().executeUpdate(sql);
-			
+			conn.createStatement().executeUpdate(sql);	
 		} catch(SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
