@@ -38,6 +38,9 @@ public class UserDataDTO implements Serializable{
 	public Long getUserId() {
         return userId;
     }
+	public void setUserId(Long userID) {
+        this.userId = userID;
+    }
 
     
     public String getFirstName() {

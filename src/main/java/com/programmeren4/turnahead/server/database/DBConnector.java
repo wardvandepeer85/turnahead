@@ -2,6 +2,7 @@ package com.programmeren4.turnahead.server.database;
 
 import java.sql.*;
 
+
 public class DBConnector {
 	//Gegevens testdb "turnaheadtest"
 	//JBDC Connection URL: jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/cb_turnaheadtest
@@ -51,5 +52,16 @@ public class DBConnector {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void close(ResultSet resultSet) {
+		if (resultSet != null) {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	
 }
