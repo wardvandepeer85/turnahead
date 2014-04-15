@@ -10,27 +10,25 @@ import com.programmeren4.turnahead.server.database.DBConnector;
 import com.programmeren4.turnahead.shared.dto.UserDataDTO;
 import com.programmeren4.turnahead.shared.exception.DAOException;
 
-
 public class UserDataDao {
-	//attributen
+	// attributen
 	private Connection conn;
 	private String sql;
-	
-	//constructor
-	public  UserDataDao(){}
-	
-	
+
+	// constructor
+	public UserDataDao() {
+	}
+
 	/**
 	 * Gebruikerinformatie opvragen uit de database
 	 */
 	public UserDataDTO getUserData(UserDataDTO userData) throws DAOException {
 		UserDataDTO userDataReturn = null;
 		ResultSet rs = null;
-		
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			sql = "SELECT * FROM USER WHERE USERID=" + userData.getUserId() + ")";
+			sql = "SELECT * FROM USER WHERE USERID=" + userData.getUserId();
 			rs = conn.createStatement().executeQuery(sql);
 			if (rs.next()) {
 				userDataReturn = new UserDataDTO();
@@ -40,8 +38,7 @@ public class UserDataDao {
 				userDataReturn.setEMail(rs.getString("EMAIL"));
 				userDataReturn.setPassword(rs.getString("PASSWORD"));
 			}
-			
-		} catch(SQLException se) {
+		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,25 +48,32 @@ public class UserDataDao {
 		}
 		return userDataReturn;
 	}
-	
-	
+
 	/**
-	 * Gebruiker toevoegen aan de database of een bestaande gebruiker 
+	 * Gebruiker toevoegen aan de database of een bestaande gebruiker
 	 */
 	public void addUserData(UserDataDTO userData) throws DAOException {
-		
+		boolean indatabase = false;
+
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			//User bestaat al > UPDATE "UPDATE USER SET *=*,*=*, WHERE USERID=" + userData.getUserId();
-			
-			
-			//User bestaat nog niet > INSERT INTO db () VALUES ()
-			String sql = "INSERT INTO USER VALUES (" + userData.getUserId() +")" ;
-			
-			
-			conn.createStatement().executeUpdate(sql);	
-		} catch(SQLException se) {
+			// Controleren of User al de db zit
+
+			if (indatabase == true) {
+				// JA -> UPDATE bestaande record
+				// "UPDATE USER SET *=*,*=*, WHERE USERID=" + userData.getUserId();
+				String sql = "UPDATE USER SET" + "" + " WHERE USERID=" + userData.getUserId();
+				conn.createStatement().executeUpdate(sql);
+			} else {
+				// NEEN -> User toevoegen aan de database> 
+				// INSERT INTO db () VALUES ()
+				String sql = "INSERT INTO USER VALUES (" + userData.getUserId()
+						+ ")";
+				conn.createStatement().executeQuery(sql);
+
+			}
+		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,18 +82,17 @@ public class UserDataDao {
 		}
 	}
 
-		
 	/**
 	 * Gebruiker verwijderen uit de db
 	 */
 	public void deleteUserData(UserDataDTO userData) throws DAOException {
-		
+
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			sql = "DELETE FROM USER WHERE USERID=" + userData.getUserId() ;
+			sql = "DELETE FROM USER WHERE USERID=" + userData.getUserId();
 			conn.createStatement().executeUpdate(sql);
-		}catch(SQLException se){
+		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,7 +100,7 @@ public class UserDataDao {
 			DBConnector.closeConn();
 		}
 	}
-	
+
 	/**
 	 * Alle gebruikers uit de db ophalen
 	 */
@@ -110,7 +113,7 @@ public class UserDataDao {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
 			rs = conn.createStatement().executeQuery(query);
-			
+
 			while (rs.next()) {
 				userDataReturn = new UserDataDTO();
 				userDataReturn.setUserId(rs.getLong("USERID"));

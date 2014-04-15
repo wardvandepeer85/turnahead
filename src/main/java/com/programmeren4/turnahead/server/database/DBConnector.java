@@ -3,24 +3,18 @@ package com.programmeren4.turnahead.server.database;
 import java.sql.*;
 
 
-public class DBConnector {
-	//Gegevens testdb "turnaheadtest"
-	//JBDC Connection URL: jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/cb_turnaheadtest
-	//DatabaseName: cb_turnaheadtest
-	//USN: beae58204ee11c
-	//PW: b31565a0
-	
+public class DBConnector {	
 	//Gegevens DB programmeren4
-	//JBDC Connection URL: 
+	//JBDC Connection URL: ec2-50-19-213-178.compute-1.amazonaws.com:3306/cb_programmeren4
 	//DatabaseName: cb_programmeren4
 	//USN: prog4
 	//PW: programmeren4
 	
 	
 	private static Connection CONN = null;
-	public static final String URL = "jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/cb_turnaheadtest";
-    public static final String USER = "Ybeae58204ee11c";
-    public static final String PASSWORD = "b31565a0";
+	public static final String URL = "ec2-50-19-213-178.compute-1.amazonaws.com:3306/cb_programmeren4";
+    public static final String USER = "prog4";
+    public static final String PASSWORD = "programmeren4";
     public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
 	
 	
