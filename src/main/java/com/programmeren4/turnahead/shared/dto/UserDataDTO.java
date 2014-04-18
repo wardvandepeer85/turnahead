@@ -17,7 +17,7 @@ public class UserDataDTO implements Serializable{
 	private Date lastLogin;
     private Date registrationDate;
     
-    //constructor
+    //constructor (?)
     public UserDataDTO(String firstName, String lastName, String eMail, String password){
     	this.firstName = firstName;
     	this.lastName = lastName;
@@ -32,9 +32,7 @@ public class UserDataDTO implements Serializable{
 		super();
 	}
 
-
-
-
+    //getters en  setters
 	public Long getUserId() {
         return userId;
     }

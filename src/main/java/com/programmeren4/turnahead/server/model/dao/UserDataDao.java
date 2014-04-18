@@ -16,8 +16,7 @@ public class UserDataDao {
 	private String sql;
 
 	// constructor
-	public UserDataDao() {
-	}
+	public UserDataDao() {}
 
 	/**
 	 * Gebruikerinformatie opvragen uit de database

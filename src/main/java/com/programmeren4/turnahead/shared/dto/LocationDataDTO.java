@@ -11,12 +11,7 @@ public class LocationDataDTO {
     private String locationName;
     private String locationDescription;
 
-    
-    //constructor
-    public LocationDataDTO(String locationName, String locationDescription ){
-    	this.locationName = locationName;
-    	this.locationDescription = locationDescription;
-    }
+    //constructor (?)
     
     
     //getters en setters
@@ -39,8 +34,6 @@ public class LocationDataDTO {
     public void setLocationDescription(String locationDescription) {
         this.locationDescription = locationDescription;
     }
-
-
 
     
 	@Override
