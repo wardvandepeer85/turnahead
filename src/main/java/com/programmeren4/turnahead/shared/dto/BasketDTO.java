@@ -1,12 +1,16 @@
 package com.programmeren4.turnahead.shared.dto;
 
+/**
+ * Basket DTO (Items in een basket van een Karakter)
+ *
+ */
 public class BasketDTO {
-
 	//attributen
 	private Long basketID; 
 	private String karakterName;
-	private int itemID;
+	private Long itemID;
 	private String itemName;
+	
 	
 	//constructor (?)
 	
@@ -26,10 +30,10 @@ public class BasketDTO {
 		this.karakterName = karakterName;
 	}
 
-	public int getItemID() {
+	public Long getItemID() {
 		return itemID;
 	}
-	public void setItemID(int itemID) {
+	public void setItemID(Long itemID) {
 		this.itemID = itemID;
 	}
 
@@ -60,7 +64,4 @@ public class BasketDTO {
 	}
 
 	
-    
-    
-    
 }

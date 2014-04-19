@@ -1,5 +1,9 @@
 package com.programmeren4.turnahead.shared.dto;
 
+/**
+ * Item DTO 
+ * 
+ */
 public class ItemDTO {
 
 	//attributen
@@ -7,7 +11,7 @@ public class ItemDTO {
 	private String itemName;
 	private String description;
 	
-	//constructor
+	//constructor (?)
 	
 	
 	//getters en setters

@@ -2,6 +2,10 @@ package com.programmeren4.turnahead.shared.dto;
 
 import java.util.Date;
 
+/**
+ * Karakter DTO
+ * 
+ */
 public class KarakterDTO {
 	//attributen
 	private Long karakterId; 

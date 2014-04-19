@@ -2,7 +2,7 @@ package com.programmeren4.turnahead.shared.dto;
 
 
 /**
- * Locatie
+ * Locatie DTO
  * 
  */
 public class LocationDTO {
@@ -18,7 +18,6 @@ public class LocationDTO {
 	public Long getLocationId() {
         return locationId;
     }
-
     
     public String getFirstName() {
         return locationName;
@@ -27,7 +26,6 @@ public class LocationDTO {
         this.locationName = locationName;
     }
 
-    
     public String getLocationDescription() {
         return locationDescription;
     }
@@ -35,14 +33,7 @@ public class LocationDTO {
         this.locationDescription = locationDescription;
     }
 
-    
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((locationId == null) ? 0 : locationId.hashCode());
-		return result;
-	}
+
 
 	@Override
 	public boolean equals(Object obj) {
