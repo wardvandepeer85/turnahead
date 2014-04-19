@@ -1,15 +1,16 @@
 package com.programmeren4.turnahead.shared.dto;
 
 /**
- * Item DTO 
+ * Item DTO<br>
+ * Items die ofwel in een Basket van een Karakter of de Locationstore van een Locatie zitten
  * 
  */
 public class ItemDTO {
-
 	//attributen
 	private Long itemId; 
 	private String itemName;
 	private String description;
+	
 	
 	//constructor (?)
 	
