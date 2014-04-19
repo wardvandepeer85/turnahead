@@ -10,6 +10,8 @@ public class KarakterDTO {
 	private Date creationDate;
     private Date lastUseDate;
 	
+    //constructor(?)
+    
     //getters en setters
     public Long getKarakterId() {
 		return karakterId;
@@ -17,24 +19,28 @@ public class KarakterDTO {
 	public void setKarakterId(Long karakterId) {
 		this.karakterId = karakterId;
 	}
+	
 	public String getKarakterName() {
 		return karakterName;
 	}
 	public void setKarakterName(String karakterName) {
 		this.karakterName = karakterName;
 	}
+	
 	public String getCurrentLocation() {
 		return currentLocation;
 	}
 	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
 	}
+	
 	public Date getCreationDate() {
 		return creationDate;
 	}
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+	
 	public Date getLastUseDate() {
 		return lastUseDate;
 	}

@@ -5,7 +5,7 @@ package com.programmeren4.turnahead.shared.dto;
  * Locatie
  * 
  */
-public class LocationDataDTO {
+public class LocationDTO {
 	//private static final long serialVersionUID = 1L;
 	private Long locationId; 
     private String locationName;
@@ -52,7 +52,7 @@ public class LocationDataDTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		LocationDataDTO other = (LocationDataDTO) obj;
+		LocationDTO other = (LocationDTO) obj;
 		if (locationId == null) {
 			if (other.locationId != null)
 				return false;
