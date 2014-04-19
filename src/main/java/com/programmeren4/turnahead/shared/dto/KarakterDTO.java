@@ -8,7 +8,8 @@ import java.util.Date;
  */
 public class KarakterDTO {
 	//attributen
-	private Long karakterId; 
+	//private static final long serialVersionUID = 1L;
+	private Long karakterId; //int karakterId;
 	private String karakterName;
     private String currentLocation;
 	private Date creationDate;

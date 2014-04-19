@@ -6,7 +6,8 @@ package com.programmeren4.turnahead.shared.dto;
  */
 public class BasketDTO {
 	//attributen
-	private Long basketID; 
+	//private static final long serialVersionUID = 1L;
+	private Long basketID; //int basketID;
 	private String karakterName;
 	private Long itemID;
 	private String itemName;

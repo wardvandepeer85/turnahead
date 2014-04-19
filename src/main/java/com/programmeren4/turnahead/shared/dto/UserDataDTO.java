@@ -8,8 +8,9 @@ import java.util.Date;
  * 
  */
 public class UserDataDTO implements Serializable{
-	private static final long serialVersionUID = 1L;
-	private Long userId; //Long key
+	//attributen
+	//private static final long serialVersionUID = 1L;
+	private Long userId; //int userId;
     private String firstName;
     private String lastName;
     private String eMail;
@@ -25,9 +26,6 @@ public class UserDataDTO implements Serializable{
     	this.password = password;
     }
     
-    
-
-
     public UserDataDTO() {
 		super();
 	}
@@ -111,7 +109,7 @@ public class UserDataDTO implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		UserDataDTO other = (UserDataDTO) obj;
-		if (userId == null) {
+		if (userId == 0) {
 			if (other.userId != null)
 				return false;
 		} else if (!userId.equals(other.userId))

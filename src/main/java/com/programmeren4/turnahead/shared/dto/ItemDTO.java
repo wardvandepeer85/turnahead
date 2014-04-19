@@ -7,7 +7,8 @@ package com.programmeren4.turnahead.shared.dto;
  */
 public class ItemDTO {
 	//attributen
-	private Long itemId; 
+	//private static final long serialVersionUID = 1L;
+	private Long itemId; //int itemId;
 	private String itemName;
 	private String description;
 	

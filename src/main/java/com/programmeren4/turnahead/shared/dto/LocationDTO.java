@@ -6,8 +6,9 @@ package com.programmeren4.turnahead.shared.dto;
  * 
  */
 public class LocationDTO {
+	//attributen
 	//private static final long serialVersionUID = 1L;
-	private Long locationId; 
+	private Long locationId; //int locationId;
     private String locationName;
     private String locationDescription;
 
