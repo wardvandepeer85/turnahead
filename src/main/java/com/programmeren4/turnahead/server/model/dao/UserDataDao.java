@@ -18,6 +18,11 @@ public class UserDataDao {
 	// constructor
 	public UserDataDao() {}
 
+	
+	//getters en setters
+	
+	
+	//methoden
 	/**
 	 * Gebruikerinformatie opvragen uit de database
 	 */
@@ -57,7 +62,7 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			//Controle (User al in de db)
+			//Controle (Bestaat User al in db ?)
 
 			if (indatabase == true) {
 				// JA -> UPDATE bestaande record
