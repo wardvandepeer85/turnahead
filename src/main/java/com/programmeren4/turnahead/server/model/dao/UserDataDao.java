@@ -49,7 +49,7 @@ public class UserDataDao {
 	}
 
 	/**
-	 * Gebruiker toevoegen aan de database of een bestaande gebruiker
+	 * Gebruiker toevoegen aan de database (INSERT) of een bestaande gebruiker bijwerken (UPDATE)
 	 */
 	public void addUserData(UserDataDTO userData) throws DAOException {
 		boolean indatabase = false;
@@ -57,7 +57,7 @@ public class UserDataDao {
 		try {
 			Class.forName(DBConnector.DRIVER_CLASS).newInstance();
 			this.conn = DBConnector.getConn();
-			// Controleren of User al de db zit
+			//Controle (User al in de db)
 
 			if (indatabase == true) {
 				// JA -> UPDATE bestaande record
