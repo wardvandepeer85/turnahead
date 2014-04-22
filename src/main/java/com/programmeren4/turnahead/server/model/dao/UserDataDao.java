@@ -65,13 +65,13 @@ public class UserDataDao {
 			//Controle (Bestaat User al in db ?)
 
 			if (indatabase == true) {
-				// JA -> UPDATE bestaande record
-				// "UPDATE USER SET *=*,*=*, WHERE USERID=" + userData.getUserId();
+				// JA -> UPDATE bestaande record 
+				// "UPDATE USER SET *='userData.getXXX()',*='userData.getXXX()', WHERE USERID=" + userData.getUserId();
 				String sql = "UPDATE USER SET" + "" + " WHERE USERID=" + userData.getUserId();
 				conn.createStatement().executeUpdate(sql);
 			} else {
 				// NEEN -> User toevoegen aan de database> 
-				// INSERT INTO db () VALUES ()
+				// INSERT INTO USER(Columns db) VALUES (userData.getXXX(), userData.getXXX(), userData.getXXX())
 				String sql = "INSERT INTO USER VALUES (" + userData.getUserId()
 						+ ")";
 				conn.createStatement().executeQuery(sql);
