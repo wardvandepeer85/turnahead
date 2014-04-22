@@ -66,16 +66,21 @@ public class UserDataDao {
 
 			if (indatabase == true) {
 				// JA -> UPDATE bestaande record 
-				// "UPDATE USER SET *='userData.getXXX()',*='userData.getXXX()', WHERE USERID=" + userData.getUserId();
-				String sql = "UPDATE USER SET" + "" + " WHERE USERID=" + userData.getUserId();
+				// "UPDATE USER SET *='userData.getX()',*='userData.getY()', WHERE USERID=" + userData.getUserId();
+				String sql = "UPDATE USER SET "; 
+				sql += "FIRSTNAME='" + userData.getFirstName() +  "',";
+				sql += "LASTNAME='" + userData.getLastName() +  "',";
+				sql += "EMAIL='" + userData.getEMail() +  "',";
+				sql += "PASSWORD='" + userData.getPassword() +  "',";
+				sql += " WHERE USERID=" + userData.getUserId();
 				conn.createStatement().executeUpdate(sql);
 			} else {
 				// NEEN -> User toevoegen aan de database> 
 				// INSERT INTO USER(Columns db) VALUES (userData.getXXX(), userData.getXXX(), userData.getXXX())
-				String sql = "INSERT INTO USER VALUES (" + userData.getUserId()
-						+ ")";
+				String sql = "INSERT INTO USER(FIRSTNAME, LASTNAME, EMAIL, PASSWORD) VALUES (" ;
+				sql += userData.getFirstName() + ", " + userData.getLastName() + ", " + userData.getEMail() + ", " + userData.getPassword() ;
+				sql += ")";
 				conn.createStatement().executeQuery(sql);
-
 			}
 		} catch (SQLException se) {
 			se.printStackTrace();

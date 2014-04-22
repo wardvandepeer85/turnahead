@@ -5,13 +5,13 @@ import java.sql.*;
 
 public class DBConnector {	
 	//Gegevens DB programmeren4
-	//JBDC Connection URL: ec2-50-19-213-178.compute-1.amazonaws.com:3306/cb_programmeren4
+	//JBDC Connection URL: ec2-50-19-213-178.compute-1.amazonaws.com:3306/programmeren4
 	//DatabaseName: cb_programmeren4
 	//USN: prog4
 	//PW: programmeren4
 	
 	private static Connection CONN = null;
-	public static final String URL = "ec2-50-19-213-178.compute-1.amazonaws.com:3306/cb_programmeren4";
+	public static final String URL = "ec2-50-19-213-178.compute-1.amazonaws.com:3306/programmeren4";
     public static final String USER = "prog4";
     public static final String PASSWORD = "programmeren4";
     public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 

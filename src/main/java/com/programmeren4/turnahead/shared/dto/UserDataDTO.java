@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class UserDataDTO implements Serializable{
 	//attributen
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private Long userId; //int userId;
     private String firstName;
     private String lastName;
